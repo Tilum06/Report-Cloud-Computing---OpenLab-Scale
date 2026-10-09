@@ -1,0 +1,30 @@
+% !TeX root = ../main.tex
+% SLIDE 4 - Expected Results
+\begin{frame}{Kết quả dự kiến}
+\small
+\begin{enumerate}
+  \setlength{\itemsep}{0.6em}
+  \item \textbf{\color{HCMUTBlue}{Bộ giả lập Virtual Lab}}\\[0.1em]
+  Mô phỏng nhu cầu sinh viên và vòng đời VM, có thể tùy chỉnh
+  \textbf{giới hạn $L$}, thời gian khởi động $\tau$,
+  thời gian chờ tắt máy và các kịch bản workload.
+
+  \item \textbf{\color{HCMUTBlue}{License-Aware Autoscaling Controller}}\\[0.1em]
+  Tự động \textbf{bật VM, pre-warm và thu hồi VM rảnh}
+  theo nhu cầu; tuân thủ giới hạn giả định $M(t) \leq L$.
+
+  \item \textbf{\color{HCMUTBlue}{Đánh giá định lượng}}\\[0.1em]
+  So sánh \textbf{Always-On, Reactive và OpenLab-Scale}
+  qua các chỉ số: VM machine-hours, thời gian chờ
+  (mean/p95), mức sử dụng VM và số lần khởi động.
+\end{enumerate}
+
+\vspace{0.35cm}
+\begin{center}
+  \textbf{Mục tiêu đánh giá:}
+  \textcolor{blue!55!black}{\textbf{Resource Cost}}
+  $\longleftrightarrow$
+  \textcolor{blue!55!black}{\textbf{Student Waiting Time}}
+\end{center}
+
+\end{frame}

@@ -1,0 +1,28 @@
+# LaTeX auxiliary and build files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex
+*.synctex.gz
+*.toc
+*.vrb
+
+# Generated documents
+*.pdf
+!images/*.pdf
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

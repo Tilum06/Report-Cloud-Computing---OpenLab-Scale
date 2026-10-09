@@ -1,0 +1,61 @@
+% !TeX root = ../main.tex
+% SLIDE 3 - Approach & Architecture
+\begin{frame}{Phương pháp tiếp cận và kiến trúc hệ thống}
+\small
+\begin{columns}[T,onlytextwidth]
+  \column{0.51\textwidth}
+  \textbf{\color{HCMUTBlue}{Phương pháp tiếp cận}}
+  \begin{itemize}
+    \setlength{\itemsep}{0.35em}
+    \item \textbf{Mô phỏng sự kiện rời rạc:}
+      mô phỏng yêu cầu của sinh viên, phiên sử dụng và vòng đời VM.
+    \item \textbf{Rule-based autoscaling:}
+      bật VM theo nhu cầu, khởi động trước giờ học và tắt VM khi rảnh.
+    \item \textbf{Thông tin đầu vào:}
+      số session, hàng chờ, trạng thái VM và lịch thực hành.
+  \end{itemize}
+
+  \vspace{0.18cm}
+  \textbf{\color{HCMUTBlue}{Giả định của mô hình:}}
+  \[
+    \boxed{1\ \text{SV} = 1\ \text{session} = 1\ \text{VM}}
+  \]
+
+  \column{0.46\textwidth}
+  \centering
+  \textbf{Kiến trúc dự kiến}
+
+  \vspace{0.16cm}
+  \begin{tikzpicture}[
+    scale=0.8,
+    node distance=0.20cm,
+    archbox/.style={
+      draw=blue!55!black,
+      fill=blue!5,
+      rounded corners=2pt,
+      thick,
+      minimum width=4.15cm,
+      minimum height=0.53cm,
+      align=center,
+      font=\scriptsize\bfseries
+    },
+    archarr/.style={-{Latex[length=1.8mm]},thick,draw=blue!55!black}
+  ]
+    \node[archbox] (req) {Student Requests};
+    \node[archbox,below=of req] (sim) {Workload / Simulation};
+    \node[archbox,below=of sim] (ctrl) {Autoscaling Controller};
+    \node[archbox,below=of ctrl] (pool) {Virtual Machine Pool};
+    \node[archbox,below=of pool] (mon) {Metrics / Dashboard};
+    \draw[archarr] (req) -- (sim);
+    \draw[archarr] (sim) -- (ctrl);
+    \draw[archarr] (ctrl) -- (pool);
+    \draw[archarr] (pool) -- (mon);
+  \end{tikzpicture}
+\end{columns}
+
+\vspace{0.15cm}
+\begin{center}
+  \scriptsize\textbf{Ràng buộc mô phỏng:}
+  số VM hoạt động không vượt quá giới hạn giả định $M(t) \leq L$.
+\end{center}
+\end{frame}
